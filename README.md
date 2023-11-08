@@ -47,7 +47,26 @@
 
 ## ADModule
 
-&nbsp; Source: [samratashok/ADModule](https://github.com/samratashok/ADModule)  
+1. Clone or download ADModule: [samratashok/ADModule](https://github.com/samratashok/ADModule)  
+&nbsp;&nbsp;&nbsp;&nbsp;- *can also just download the 2 needed files*  
+
+2. `Import-Module \<absolute or relative path>\Microsoft.ActiveDirectory.Management.dll -Verbose`  
+
+3. `Import-Module \<absolute or relative path>\ActiveDirectory\ActiveDirectory.psd1 -Verbose`  
+&nbsp;&nbsp;&nbsp;&nbsp;- *If the execution policy fails, do `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted` and then do step 2 onward*  
+&nbsp;&nbsp;&nbsp;&nbsp;- *Can also do `Unblock-File <file_path>`*  
+
+5. `Get-Command -Module ActiveDirectory` *won't work* and `Get-ADDomain` *will work*  
+
+6. `iwr -Uri "https://github.com/samratashok/admodule/archive/master.zip" -Outfile ADModule.zip`  
+
+7. `Expand-archive .\ADModule.zip`  
+
+8. `cd .\ADModule-master\ActiveDirectory`
+
+9. `import-Module ActiveDirectory.psd1`
+
+10. `Get-Command -Module ActiveDirectoryn   get-`  
 
 &nbsp;  
 
