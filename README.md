@@ -22,21 +22,37 @@
 
 &nbsp;  
 
-## TLS version
+## AMSI Bypass
 
-1. To enumerate 'systemdefault' to see what's supported:
-2. 
+1. Source 1: [S3cur3Th1sSh1t/Amsi-Bypass-Powershell](https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell)  
+
+2. Source 2: [reigningshells/powershell-bypasses.ps1](https://gist.github.com/reigningshells/a255fcca07465befbcbf4be9cdf67560)  
+&nbsp;&nbsp;&nbsp;&nbsp;- *This works*  
+
+3. Source 3: [NullPtrStack/amsi-bypass](https://nullptrstack.github.io/amsi-bypass/)  
+&nbsp;&nbsp;&nbsp;&nbsp;- *Test with the bypass in this one*
 
 &nbsp;  
 
-## AMSI Bypass
+## TLS version
 
-&nbsp; Source: [S3cur3Th1sSh1t/Amsi-Bypass-Powershell](https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell)  
+1. To enumerate 'systemdefault' to see what's supported:  
+`[enum]::getvalues('net.securityprotocoltype')`  
+
+2. To set to TLS1.2 (or greater):  
+`[Net.ServicePointmanager]::SecurityProtocol = 'Tls12'`  
+&nbsp;&nbsp;&nbsp;&nbsp;- *can replace 'Tls12' with a greater version*  
 
 &nbsp;  
 
 ## ADModule
 
 &nbsp; Source: [samratashok/ADModule](https://github.com/samratashok/ADModule)  
+
+&nbsp;  
+
+## 
+
+1. 
 
 &nbsp;  
