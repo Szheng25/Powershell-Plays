@@ -56,17 +56,17 @@
 &nbsp;&nbsp;&nbsp;&nbsp;- *If the execution policy fails, do `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted` and then do step 2 onward*  
 &nbsp;&nbsp;&nbsp;&nbsp;- *Can also do `Unblock-File <file_path>`*  
 
-5. `Get-Command -Module ActiveDirectory` *won't work* and `Get-ADDomain` *will work*  
+4. `Get-Command -Module ActiveDirectory` *won't work* and `Get-ADDomain` *will work*  
+&nbsp;  
+5. `iwr -Uri "https://github.com/samratashok/admodule/archive/master.zip" -Outfile ADModule.zip`  
 
-6. `iwr -Uri "https://github.com/samratashok/admodule/archive/master.zip" -Outfile ADModule.zip`  
+6. `Expand-archive .\ADModule.zip`  
 
-7. `Expand-archive .\ADModule.zip`  
+7. `cd .\ADModule-master\ActiveDirectory`
 
-8. `cd .\ADModule-master\ActiveDirectory`
+8. `import-Module ActiveDirectory.psd1`
 
-9. `import-Module ActiveDirectory.psd1`
-
-10. `Get-Command -Module ActiveDirectoryn   get-`  
+9. `Get-Command -Module ActiveDirectoryn   get-`  
 
 &nbsp;  
 
