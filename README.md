@@ -103,9 +103,3 @@
 1. Using PowerView tips: [HarmJ0y/Cheatsheets](https://github.com/HarmJ0y/CheatSheets/blob/master/PowerView.pdf) and [BSidesCharm-PowershellSecurity](https://adsecurity.org/wp-content/uploads/2016/05/BSidesCharm-2016-PowerShellSecurity-Defending-the-Enterprise-from-the-Latest-Attack-Platform-FINAL.pdf)
 
 &nbsp;  
-
-## 
-
-1. 
-
-&nbsp;  
