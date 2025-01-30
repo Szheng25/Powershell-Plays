@@ -1,6 +1,6 @@
-# Powershell-Stuff
+# Powershell Plays
 
-&nbsp; Powershell stuff  
+&nbsp; Playing around with Powershell   
 
 &nbsp;  
 
