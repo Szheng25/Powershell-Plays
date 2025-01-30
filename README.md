@@ -1,6 +1,6 @@
-# Powershell Plays
+# PowershellPlays
 
-&nbsp; Playing around with Powershell   
+&nbsp; Playing around with Powershell and ADModule
 
 &nbsp;  
 
